@@ -1,0 +1,43 @@
+version: '2.1'
+
+networks:
+  monitor-net:
+    driver: bridge
+
+volumes:
+    prometheus_data: {}
+    grafana_data: {}
+    mosquitto_data: {}
+
+services:
+
+  prometheus:
+    image: bibbylong/tpe-monitor:1.0.0
+    container_name: prometheus
+    platform: linux/amd64
+    environment:
+      - DEVICES=[{"name":"garyUC8100a","tlsEnable":true,"addr":"10.123.12.138:8443"}]
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+      - prometheus_data:/prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    networks:
+      - monitor-net
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+    platform: linux/amd64
+    environment:
+      - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+    depends_on:
+      - prometheus
+    ports:
+      - "3000:3000"
+    networks:
+      - monitor-net

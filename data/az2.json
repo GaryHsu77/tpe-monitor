@@ -1,0 +1,320 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 2,
+    "iteration": 1638269182557,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "id": 6,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "targets": [
+          {
+            "exemplar": true,
+            "expr": "connectionLastD2CMessageSize{device=~\"$device\",connection=~\"$connection\"}",
+            "interval": "",
+            "legendFormat": "$connection",
+            "refId": "A"
+          }
+        ],
+        "title": "Panel Title",
+        "type": "timeseries"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 5,
+          "x": 0,
+          "y": 8
+        },
+        "id": 2,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true,
+          "text": {}
+        },
+        "pluginVersion": "8.2.4",
+        "targets": [
+          {
+            "exemplar": true,
+            "expr": "cpuUsage{device=~\"$device\"}",
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "title": "CPU Usage",
+        "type": "gauge"
+      },
+      {
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [
+              {
+                "options": {
+                  "0": {
+                    "color": "green",
+                    "index": 0,
+                    "text": "Connect"
+                  },
+                  "1": {
+                    "color": "red",
+                    "index": 1,
+                    "text": "Disconnect"
+                  }
+                },
+                "type": "value"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 5,
+          "x": 0,
+          "y": 13
+        },
+        "id": 4,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "/^connectionConnectionState\\{connection=\"azuredevice\\-1\", desc=\"2021-11-30T17:36:36\\+08:00\", device=\"garyUC8100a\", instance=\"localhost:8080\", job=\"tpe-exporter-job\"\\}$/",
+            "values": false
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.4",
+        "repeat": null,
+        "targets": [
+          {
+            "exemplar": true,
+            "expr": "connectionConnectionState{device=~\"$device\",connection=~\"$connection\"}",
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "title": "Northbound Connection State",
+        "type": "stat"
+      }
+    ],
+    "refresh": "5s",
+    "schemaVersion": 32,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "allValue": null,
+          "current": {
+            "selected": true,
+            "text": [
+              "garyUC8100a"
+            ],
+            "value": [
+              "garyUC8100a"
+            ]
+          },
+          "datasource": null,
+          "definition": "label_values(device)",
+          "description": null,
+          "error": null,
+          "hide": 0,
+          "includeAll": true,
+          "label": null,
+          "multi": true,
+          "name": "device",
+          "options": [],
+          "query": {
+            "query": "label_values(device)",
+            "refId": "StandardVariableQuery"
+          },
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "type": "query"
+        },
+        {
+          "allValue": null,
+          "current": {
+            "selected": false,
+            "text": "azuredevice-1",
+            "value": "azuredevice-1"
+          },
+          "datasource": null,
+          "definition": "label_values(connectionConnectionState{device=~\"$device\"}, connection)",
+          "description": null,
+          "error": null,
+          "hide": 0,
+          "includeAll": false,
+          "label": null,
+          "multi": false,
+          "name": "connection",
+          "options": [],
+          "query": {
+            "query": "label_values(connectionConnectionState{device=~\"$device\"}, connection)",
+            "refId": "StandardVariableQuery"
+          },
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "type": "query"
+        }
+      ]
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "New dashboard Copy",
+    "uid": "bwAYt-t7z",
+    "version": 5
+  }
