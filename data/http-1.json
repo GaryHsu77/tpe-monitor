@@ -6,19 +6,11 @@
     "properties": null,
     "tags": {
       "system": {
-        "status": [
-          "cpuUsage",
-	  "memoryUsage"	  
-        ],
-	"network": [
-	  "networkTx",
-	  "networkRx"
-	]
+        "status": ["cpuUsage", "memoryUsage"],
+        "network": ["networkTx", "networkRx"]
       },
       "metrics": {
-	"clouds": [
-	    "/cloud/metrics"
-	]
+        "clouds": ["/cloud/metrics"]
       }
     },
     "sendOutThreshold": {
