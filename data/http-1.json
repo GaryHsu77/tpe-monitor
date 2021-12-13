@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "description": "",
+    "outputTopic": "sample",
+    "properties": null,
+    "tags": {
+      "system": {
+        "status": [
+          "cpuUsage",
+	  "memoryUsage"	  
+        ],
+	"network": [
+	  "networkTx",
+	  "networkRx"
+	]
+      },
+      "metrics": {
+	"clouds": [
+	    "/cloud/metrics"
+	]
+      }
+    },
+    "sendOutThreshold": {
+      "mode": "",
+      "size": 1024,
+      "time": 0,
+      "sizeIdleTimer": {
+        "enable": false,
+        "time": 0
+      }
+    },
+    "minPublishInterval": 0,
+    "samplingMode": "allChangedValues",
+    "customSamplingRate": false,
+    "pollingInterval": 3,
+    "onChange": false,
+    "enable": true,
+    "format": "[.]"
+  }
+]
